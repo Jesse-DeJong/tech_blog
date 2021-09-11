@@ -12,7 +12,11 @@
       <p>{{article_content}}</p>
       <p><em>{{date_created}}</em></p>
       <hr>
-      <p>{{comments.comment_content}}</p>
+      {{#each comments}}
+      <p><strong>{{author}}</strong></p>
+      <p>{{comment_content}}</p>
+      <p><em>{{date_created}}</em></p>
+      {{/each}}
       <hr>
       {{#if loggedIn}}
 
