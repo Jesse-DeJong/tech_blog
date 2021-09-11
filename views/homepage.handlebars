@@ -1,5 +1,7 @@
 <div class="accordion" id="accordionExample">
-  {{#each articles}}
+  <div class="accordion-item">
+  {{#each searializedArticleData}}
     {{> article loggedIn=...loggedIn}}
   {{/each}}
+  </div>
 </div>

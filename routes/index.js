@@ -3,6 +3,8 @@ const apiRoutes = require('./api');
 
 const { User, Article } = require('../models');
 
+console.log('\n test \n');
+
 // Import API routes
 router.use('/api', apiRoutes);
 
@@ -11,9 +13,9 @@ router.get('/', async (req, res) => {
   try {
     // Query Database for all Articles and associated Comments
     const articleData = await Article.findAll({
-      include: {
-        // model: Comment, through: xxx
-      },
+      // include: {
+      //   // model: Comment, through: xxx
+      // },
       order: [['date_created', 'ASC']]
     });
     // Searialize the returned data
@@ -21,8 +23,8 @@ router.get('/', async (req, res) => {
       articleData.get({ plain: true }));
     // Render the page passing in the serialized data
     res.status(200).render('homepage', {
-      searializedArticleData,
-      loggedIn: req.session.loggedIn
+      searializedArticleData
+      // loggedIn: req.session.loggedIn
     });
   } catch (error) {
     res.status(500).json(error);

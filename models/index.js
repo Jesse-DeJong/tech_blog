@@ -4,7 +4,7 @@ const Article = require('./Article');
 
 // Relationships
 Article.belongsTo(User, {
-    foreignKey: 'id'
+    foreignKey: 'username'
 });
 
 // Export models

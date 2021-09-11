@@ -20,10 +20,10 @@ Article.init(
             allowNull: false
         },
         author: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             references: {
                 model: 'user',
-                key: 'id'
+                key: 'username'
             }
         },
         date_created: {
