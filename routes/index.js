@@ -3,12 +3,10 @@ const apiRoutes = require('./api');
 
 const { User, Article } = require('../models');
 
-console.log('\n test \n');
-
 // Import API routes
 router.use('/api', apiRoutes);
 
-// Home Route
+// Unauthenticated Home Route
 router.get('/', async (req, res) => {
   try {
     // Query Database for all Articles and associated Comments
@@ -30,5 +28,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(error);
   }
 });
+
+// Authenticated Home Route
 
 module.exports = router;
