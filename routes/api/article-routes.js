@@ -66,8 +66,20 @@ router.post('/publish', withAuth, async (req, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
-})
+});
 
 // DELETE an article
+router.delete('/:id', async (req, res) => {
+    try {
+      const articleData = await Article.destroy({
+        where: {
+            id: req.body.articleId
+        }
+    });
+        res.status(204).json(articleData);
+    } catch (error) {
+        res.status(404).json(error);
+    }
+});
 
 module.exports = router;
