@@ -26,15 +26,16 @@ const deleteReqHandler = async (event) => {
 
     // Grab the ID for Article the deletion request realates to 
     const articleId = event.target.id;
+    console.log(articleId);
     // Call the comment route with the userdata
-    const response = await fetch(`/api/articles/`, {
+    const response = await fetch(`/api/articles/${articleId}`, {
         method: 'DELETE',
         body: JSON.stringify({ articleId }),
         headers: { 'Content-Type': 'application/json' },
     });
     // If successful redirect to the homepage
     if (response.ok) {
-      document.location.replace('/api/articles');
+      document.location.replace(`/api/articles/`);
     } else {
       alert('Requested deletion unsuccessful, please try again.');
     }
