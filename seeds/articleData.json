@@ -1,0 +1,27 @@
+[
+    {
+        "article_title": "Seed Data Article ONE",
+        "article_content": "Some example text for seed data article one.",
+        "author": 1
+    },
+    {
+        "article_title": "Seed Data Article TWO",
+        "article_content": "Some example text for seed data article two.",
+        "author": 2
+    },
+    {
+        "article_title": "Seed Data Article THREE",
+        "article_content": "Some example text for seed data article three.",
+        "author": 3
+    },
+    {
+        "article_title": "Seed Data Article FOUR",
+        "article_content": "Some example text for seed data article four.",
+        "author": 4
+    },
+    {
+        "article_title": "Seed Data Article FIVE",
+        "article_content": "Some example text for seed data article five.",
+        "author": 5
+    }
+]
