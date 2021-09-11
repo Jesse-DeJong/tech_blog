@@ -7,7 +7,18 @@ const { withAuth } = require('../../utils/helpers');
 // Dashboard Homepage
 router.get('/', withAuth, async (req, res) => {
     try {
+        // Query Database for all Articles and associated Comments
+        const articleData = await Article.findAll({
+            where: { author: req.session.user },
+            include: [{ model: Comment }],
+            order: [['date_created', 'ASC']]
+        });
+        // Searialize the returned data
+        const searializedArticleData = articleData.map(articleData =>
+        articleData.get({ plain: true }));
+        // Render the dashboard with the logged in users articles
         res.status(200).render('dashboard', {
+            searializedArticleData,
             loggedIn: req.session.loggedIn
         });
     } catch (error) {

@@ -14,7 +14,7 @@ const articleFormHandler = async (event) => {
       });
       // If successful redirect to the homepage
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/api/articles');
       } else {
         alert('Publishing article unsuccessful, please try again.');
       }

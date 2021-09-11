@@ -24,4 +24,18 @@
     </div>
 </div>
 
+<hr>
+
+{{#if searializedArticleData.length}}
+
+<div class="accordion" id="accordionExample">
+
+  {{#each searializedArticleData}}
+    {{> article loggedIn=...loggedIn}}
+  {{/each}}
+
+</div>
+
+{{/if}}
+
 <script src="/js/article.js"></script>
