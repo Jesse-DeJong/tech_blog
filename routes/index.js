@@ -21,8 +21,8 @@ router.get('/', async (req, res) => {
       articleData.get({ plain: true }));
     // Render the page passing in the serialized data
     res.status(200).render('homepage', {
-      searializedArticleData
-      // loggedIn: req.session.loggedIn
+      searializedArticleData,
+      loggedIn: req.session.loggedIn
     });
   } catch (error) {
     res.status(500).json(error);

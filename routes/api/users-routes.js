@@ -58,9 +58,10 @@ router.post('/login', async (req, res) => {
       req.session.save(() => {
         req.session.loggedIn = true,
         req.session.user = userData.username;
+        res.json(userData);
       });
       // Redirect the logged in user to the '/' route with their session flagged
-      res.status(302).redirect('/');
+      
     } catch (error) {
       res.status(500).json(error);
     }
@@ -86,6 +87,18 @@ router.post('/signup', async (req, res) => {
     res.status(302).redirect('/');
   } catch (error) {
     res.status(500).json(error);
+  }
+});
+
+// Logout Route
+router.post('/logout', (req, res) => {
+  // When the user logs out, the session is destroyed
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 

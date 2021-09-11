@@ -13,7 +13,9 @@ const loginFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
     // If successful redirect to the homepage
-    if (!response.ok) {
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
       alert('Login unsuccessful, please try again.');
     }
   }
