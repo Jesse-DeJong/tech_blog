@@ -1,0 +1,29 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" id="{{article_name}}">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{id}}" aria-expanded="true" aria-controls="collapse{{id}}">
+      {{article_name}}
+    </button>
+  </h2>
+  <div id="collapse{{id}}" class="accordion-collapse collapse" aria-labelledby="heading{{id}}" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+      <h5>Author: {{author}} <p><em>{{date_created}}</em></p></h5>
+      <p>{{contents}}</p>
+
+      {{#if user_comments}}
+      <h6>Author: {{author}} <p><em>{{date_created}}</em></p></h6>
+      <p>{{contents}}</p>
+      {{/if}}
+
+      {{#if loggedIn}}
+
+      <div class="mb-3">
+        <label for="commentField" class="form-label">Add Comment:</label>
+        <textarea class="form-control" id="commentField-{{id}}" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary mt-3 commentField" id="{{id}}">Submit</button>
+      </div>
+
+      {{/if}}
+
+    </div>
+  </div>
+</div>
