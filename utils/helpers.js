@@ -2,7 +2,7 @@ module.exports = {
     withAuth: (req, res, next) => {
 
         if (!req.session.loggedIn) {
-            res.redirect('/login');
+            res.redirect('/api/users/');
         } else {
             next();
         }
