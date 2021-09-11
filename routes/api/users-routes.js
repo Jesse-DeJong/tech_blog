@@ -70,7 +70,7 @@ router.post('/login', async (req, res) => {
 // Signup Route
 router.post('/signup', async (req, res) => {
   try {
-    // Check the database against the entered email address
+    // Create a new user from the input data
     const newUserData = await User.create({
       username: req.body.username,
       email: req.body.email,
