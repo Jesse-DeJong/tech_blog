@@ -60,8 +60,6 @@ router.post('/login', async (req, res) => {
         req.session.user = userData.username;
         res.json(userData);
       });
-      // Redirect the logged in user to the '/' route with their session flagged
-      
     } catch (error) {
       res.status(500).json(error);
     }
@@ -82,9 +80,8 @@ router.post('/signup', async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true,
       req.session.user = newUserData.username;
+      res.json(newUserData);
     });
-    // Redirect the logged in user to the '/' route with their session flagged
-    res.status(302).redirect('/');
   } catch (error) {
     res.status(500).json(error);
   }
