@@ -20,8 +20,21 @@ const articleFormHandler = async (event) => {
       }
     }
   };
+const deleteReqHandler = async (event) => {
+  event.preventDefault();
+
+    // Grab the ID for Article the deletion request realates to 
+    const articleId = event.target.id;
+    console.log(articleId);
+}
 
 // DOM targeting and listener for form submission
 document
   .getElementById('article-form')
   .addEventListener('click', articleFormHandler);
+
+// DOM targeting across DIV to add eachlistener for DELETION request
+document
+.querySelectorAll('.deleteBtn').forEach(button => {
+    button.addEventListener('click', deleteReqHandler)
+});
